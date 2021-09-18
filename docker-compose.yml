@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  core0:
+    container_name: core0
+    image: zydhanlinnar11/domjudge-judgehost:7.3.3
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    env_file:
+      - env/judgehost.env
+    hostname: wsl-zydhan
+    restart: always
+    environment:
+      - DAEMON_ID=0
+  # core1:
+  #   container_name: core1
+  #   image: zydhanlinnar11/domjudge-judgehost:7.3.3
+  #   privileged: true
+  #   volumes:
+  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  #   env_file:
+  #     - env/judgehost.env
+  #   hostname: wsl-zydhan
+  #   restart: always
+  #   environment:
+  #     - DAEMON_ID=1
